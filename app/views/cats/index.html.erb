@@ -1,0 +1,35 @@
+<div class='cats'>
+
+  <h1>Cats</h1>
+
+  <table>
+    <thead>
+    <tr>
+      <td class="td"> name </td>
+      <td class="td"> owner </td>
+      <td class="td"> age </td>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @cats.each do |cat| %>
+        <tr>
+          <td><%= cat.name %></td>
+          <td><%= cat.owner %></td>
+          <td><%= cat.age %></td>
+            <td>
+              <div class="actions">
+                <div><%= link_to 'Show', "/cats/#{cat.id}" %></div>
+                <div><%= link_to 'Edit', edit_cat_path(cat) %></div>
+                <div><%= link_to 'Destroy', cat_path(cat), method: :delete, data: { confirm: 'Are you sure?' } %></div>
+              </div>
+            </td>
+                        <td class="actions"></td>
+        </tr>
+    <% end %>
+    <td class="new"><%= link_to 'New cat', new_cat_path %></td>
+    </tbody>
+
+  </table>
+
+</div>
